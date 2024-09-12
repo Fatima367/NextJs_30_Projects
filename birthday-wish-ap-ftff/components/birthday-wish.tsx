@@ -1,149 +1,170 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
-import { motion, AnimatePresence } from "framer-motion";
+import React,{ useState,useEffect } from "react";
+import { Button } from "./ui/button"; 
+import { Card,CardHeader,CardTitle,CardDescription,CardContent,CardFooter } from "./ui/card";
+import {motion, AnimatePresence} from 'framer-motion';
 import dynamic from "next/dynamic";
 import { FaBirthdayCake, FaGift } from "react-icons/fa";
 import { GiBalloons } from "react-icons/gi";
 
+type ConfettiProps = {
+  width : number
+  height : number
+}
+
+const DynamicConfetti = dynamic(() => import('react-confetti'), { ssr: false })
+
+const candleColors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8']
+const balloonColors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8']
+const confettiColors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE']
 
 
-const DynamicConfetti = dynamic(() => import("react-confetti"), { ssr: false });
 
-const candleColors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FFA07A", "#98D8C8"];
-const balloonColors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FFA07A", "#98D8C8"];
-const confettiColors = [
-  "#FF6B6B",
-  "#4ECDC4",
-  "#45B7D1",
-  "#FFA07A",
-  "#98D8C8",
-  "#F7DC6F",
-  "#BB8FCE",
-];
 
-export default function BirthdayWish() {
-  const [candlesLit, setCandlesLit] = useState<number>(0);
-  const [balloonsPoppedCount, setBalloonsPoppedCount] = useState<number>(0);
-  const [showConfetti, setShowConfetti] = useState<boolean>(false);
-  const [windowSize, setWindowSize] = useState<ConfettiProps>({
-    width: 0,
-    height: 0,
-  });
-  const [celebrating, setCelebrating] = useState<boolean>(false);
+export default function BirthdayWish(){
 
-  const totalCandles = 5;
-  const totalBalloons = 5;
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const [candlesLit, setCandlesLit] = useState<number>(0)
+const [balloonsPoppedCount, setBalloonsPoppedCount] = useState<number>(0)
+const [showConfetti, setShowConfetti] = useState <boolean> (false)
+const [windowSize, setWindowSize] = useState <ConfettiProps>({ width: 0, height : 0})
+const [celebrating, setCelebrating] = useState <boolean> (false)
+
+const totalCandles :number =5
+const totalBalloons :number =5
+
+  useEffect(()=>{
+    const handleResize = ()=>{
+      setWindowSize({ width : window.innerWidth , height : window.innerHeight})
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return ()=> window.removeEventListener('resize', handleResize)
+  },[])
 
   useEffect(() => {
     if (candlesLit === totalCandles && balloonsPoppedCount === totalBalloons) {
-      setShowConfetti(true);
+      setShowConfetti(true)
     }
-  }, [candlesLit, balloonsPoppedCount]);
+  }, [candlesLit, balloonsPoppedCount])
 
-  const lightCandle = (index) => {
+
+  const lightCandle = (index: number) => {
     if (index === candlesLit) {
-      setCandlesLit((prev) => prev + 1);
+      setCandlesLit(prev => prev + 1)
     }
-  };
+  }
 
-  const popBalloon = (index) => {
+  const popBalloon = (index: number) => {
     if (index === balloonsPoppedCount) {
-      setBalloonsPoppedCount((prev) => prev + 1);
+      setBalloonsPoppedCount(prev => prev + 1)
     }
-  };
+  }
+
 
   const celebrate = () => {
-    setCelebrating(true);
-    setShowConfetti(true);
+    setCelebrating(true)
+    setShowConfetti(true)
     const interval = setInterval(() => {
-      setCandlesLit((prev) => {
-        if (prev < totalCandles) return prev + 1;
-        clearInterval(interval);
-        return prev;
-      });
-    }, 500);
-  };
+      setCandlesLit(prev => {
+        if (prev < totalCandles) return prev + 1
+        clearInterval(interval)
+        return prev
+      })
+    }, 500)
+  }
+
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4
+    bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-90%">
+     
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <Card className="mx-auto overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl border-2 border-black">
+
+        <Card className="mx-auto overflow-hidden transition-all duration-300
+        ease-in-out hover:shadow-2xl border-2 border-black font-serif bg-purple-50
+        ring-4 ring-purple-500 ring-offset-4 ring-offset-slate-50 dark:ring-offset-slate-900">
+          
           <CardHeader className="text-center">
+
             <CardTitle className="text-4xl font-bold text-black">
-              Happy 20th Birthday!
-            </CardTitle>
+              
+              Happy Birthday!
+              
+              </CardTitle>
+
             <CardDescription className="text-2xl font-semibold text-gray-600">
-              Asharib Ali
-            </CardDescription>
-            <p className="text-lg text-gray-500">September 4th</p>
+              
+              Fatima
+              
+              </CardDescription>
+
+            <p className="text-lg text-gray-500">
+              
+              June 3rd
+              
+              </p>
+
           </CardHeader>
-          <CardContent className="space-y-6 text-center">
+          
+          <CardContent className="space-y-4 text-center">
             <div>
+              
               <h3 className="text-lg font-semibold text-black mb-2">
-                Light the candles:
-              </h3>
+                
+                Light the candles:</h3>
+              
               <div className="flex justify-center space-x-2">
+                
                 {[...Array(totalCandles)].map((_, index) => (
+                  
                   <AnimatePresence key={index}>
-                    {(celebrating && index <= candlesLit) ||
-                    (!celebrating && index < candlesLit) ? (
+                    {(celebrating && index <= candlesLit) || (!celebrating && index < candlesLit) ? (
+                      
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
-                        transition={{
-                          duration: 0.5,
-                          delay: celebrating ? index * 0.5 : 0,
-                        }}
+                        transition={{ duration: 0.5, delay: celebrating ? index * 0.5 : 0 }}
                       >
                         <FaBirthdayCake
-                          className={`w-8 h-8 transition-colors duration-300 ease-in-out cursor-pointer hover:scale-110`}
-                          style={{
-                            color: candleColors[index % candleColors.length],
-                          }}
+                          className={`w-8 h-8 transition-colors duration-300 ease-in-out 
+                            cursor-pointer hover:scale-110`}
+                          style={{ color: candleColors[index % candleColors.length] }}
                           onClick={() => lightCandle(index)}
                         />
+                      
                       </motion.div>
                     ) : (
                       // Unlit candle
+                      
                       <FaBirthdayCake
-                        className={`w-8 h-8 text-gray-300 transition-colors duration-300 ease-in-out cursor-pointer hover:scale-110`}
+                        className={`w-8 h-8 text-gray-300 transition-colors duration-300 
+                          ease-in-out cursor-pointer hover:scale-110`}
                         onClick={() => lightCandle(index)}
                       />
                     )}
                   </AnimatePresence>
+
                 ))}
+
               </div>
             </div>
             <div>
+              
               <h3 className="text-lg font-semibold text-black mb-2">
+                
                 Pop the balloons:
-              </h3>
+                </h3>
+
               <div className="flex justify-center space-x-2">
+                
                 {[...Array(totalBalloons)].map((_, index) => (
                   <motion.div
                     key={index}
@@ -153,31 +174,37 @@ export default function BirthdayWish() {
                   >
                     <GiBalloons
                       className={`w-8 h-8 cursor-pointer hover:scale-110`}
-                      style={{
-                        color:
-                          index < balloonsPoppedCount
-                            ? "#D1D5DB"
-                            : balloonColors[index % balloonColors.length],
-                      }}
+                      style={{ color: index < balloonsPoppedCount ? '#D1D5DB' : balloonColors[index % balloonColors.length] }}
                       onClick={() => popBalloon(index)}
                     />
+
                   </motion.div>
                 ))}
+
               </div>
             </div>
+          
           </CardContent>
+          
           <CardFooter className="flex justify-center">
-            <Button
+            <Button 
               className="bg-black text-white hover:bg-gray-800 transition-all duration-300"
               onClick={celebrate}
               disabled={celebrating}
             >
-              Celebrate! <FaGift className="ml-2 h-4 w-4" />
+              Celebrate! 
+              <FaGift className="ml-2 h-4 w-4" />
+            
             </Button>
+          
           </CardFooter>
+        
         </Card>
+      
       </motion.div>
+      
       {showConfetti && (
+        
         <DynamicConfetti
           width={windowSize.width}
           height={windowSize.height}
@@ -187,5 +214,7 @@ export default function BirthdayWish() {
         />
       )}
     </div>
-  );
+  )
 }
+
+
