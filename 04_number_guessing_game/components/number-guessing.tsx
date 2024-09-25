@@ -12,7 +12,7 @@ interface numberGuessingState {
   attempts: number;
 }
 
-export default function NumberGuessingGame() {
+export default function NumberGuessingGame() : JSX.Element{
   const [gameStarted, setGameStarted] = useState<boolean>(false);
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(false);
@@ -62,10 +62,14 @@ export default function NumberGuessingGame() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen 
-    bg-[url(./images/bgimg.jpg)] bg-cover">
-      <div className="bg-white ring-8 ring-pink-200 ring-offset-8 ring-offset-slate-100
-      font-serif rounded-lg shadow-lg p-8 w-full max-w-md">
+    <div
+      className="flex flex-col items-center justify-center h-screen 
+    bg-[url(./images/bgimg.jpg)] bg-cover"
+    >
+      <div
+        className="bg-white ring-8 ring-pink-200 ring-offset-8 ring-offset-slate-100
+      font-serif rounded-lg shadow-lg p-8 w-full max-w-md"
+      >
         <h1 className="text-3xl font-bold text-center mb-2 text-blue-950">
           Number Guessing Game
         </h1>
@@ -117,7 +121,7 @@ export default function NumberGuessingGame() {
               </Button>
             </div>
             <div className="text-center text-black bg-blue-50">
-              <p >Attempts: {attempts}</p>
+              <p>Attempts: {attempts}</p>
             </div>
           </div>
         )}
