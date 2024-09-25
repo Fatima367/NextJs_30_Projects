@@ -19,7 +19,7 @@ useEffect(()=>{
         setTime(new Date());
     }, 1000)
     return ()=> clearInterval(interval)
-})
+},[])
 
 const formattedTime = useMemo<string>(()=>{
     if(!mounted) return "";
