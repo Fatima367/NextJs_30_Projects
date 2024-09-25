@@ -1,13 +1,6 @@
 "use client";
 import { useState, ChangeEvent } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Checkbox, CheckedState } from "./ui/checkbox";
