@@ -7,7 +7,7 @@ import { Checkbox, CheckedState } from "./ui/checkbox";
 import { Label } from "@radix-ui/react-label";
 
 export default function PasswordGeneratorComponent() {
-  const [lenght, setLength] = useState<number>(16);
+  const [length, setLength] = useState<number>(16);
   const [includeUppercase, setIncludeUppercase] = useState<boolean>(true);
   const [includeLowercase, setIncludeLowercase] = useState<boolean>(true);
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(true);
