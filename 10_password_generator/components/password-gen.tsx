@@ -68,7 +68,7 @@ export default function PasswordGeneratorComponent() {
     bg-[url(./images/bgimg.jpg)] bg-cover"
     >
       <Card
-        className="w-full max-w-md p-6 bg-white dark:bg-gray-800 shadow-2xl 
+        className="w-full max-w-md p-4 bg-white dark:bg-gray-800 shadow-2xl 
       shadow-black rounded-3xl ring-4 ring-purple-400 ring-offset-4 ring-offset-cyan-100"
       >
         <div className="mx-auto max-w-md space-y-6">
