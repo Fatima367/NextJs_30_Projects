@@ -11,7 +11,7 @@ import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 
-interface BmiResult {
+type BmiResult = {
   bmi: string;
   category: string;
 }
