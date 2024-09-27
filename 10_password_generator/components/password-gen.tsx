@@ -63,10 +63,14 @@ export default function PasswordGeneratorComponent() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen 
-    bg-[url(./images/bgimg.jpg)] bg-cover">
-      <Card className="w-full max-w-md p-6 bg-white dark:bg-gray-800 shadow-2xl 
-      shadow-black rounded-3xl ring-4 ring-purple-400 ring-offset-4 ring-offset-cyan-100">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen 
+    bg-[url(./images/bgimg.jpg)] bg-cover"
+    >
+      <Card
+        className="w-full max-w-md p-6 bg-white dark:bg-gray-800 shadow-2xl 
+      shadow-black rounded-3xl ring-4 ring-purple-400 ring-offset-4 ring-offset-cyan-100"
+      >
         <div className="mx-auto max-w-md space-y-6">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl font-bold">Password Generator</h1>
@@ -122,10 +126,12 @@ export default function PasswordGeneratorComponent() {
                 <Label htmlFor="symbols">Symbols</Label>
               </div>
             </div>
-            <Button type="button" 
-            className="w-full ring-2 ring-purple-500 ring-offset-4 ring-offset-cyan-100 bg-violet-700
-            font-bold" 
-            onClick={generatePassword}>
+            <Button
+              type="button"
+              className="w-full ring-2 ring-purple-500 ring-offset-4 ring-offset-cyan-100 bg-violet-700
+            font-bold"
+              onClick={generatePassword}
+            >
               Generate Password
             </Button>
             <div className="space-y-2">
@@ -138,9 +144,11 @@ export default function PasswordGeneratorComponent() {
                   readOnly
                   className="flex-1 ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100"
                 />
-                <Button type="button" 
-                className="ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100 bg-violet-700"
-                onClick={copyToClipboard}>
+                <Button
+                  type="button"
+                  className="ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100 bg-violet-700"
+                  onClick={copyToClipboard}
+                >
                   Copy to Clipboard
                 </Button>
               </div>
