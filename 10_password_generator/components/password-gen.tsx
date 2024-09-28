@@ -68,19 +68,20 @@ export default function PasswordGeneratorComponent() {
     bg-[url(./images/bgimg.jpg)] bg-cover"
     >
       <Card
-        className="w-full max-w-md p-4 bg-white dark:bg-gray-800 shadow-2xl 
-      shadow-black rounded-3xl ring-4 ring-purple-400 ring-offset-4 ring-offset-cyan-100"
+        className="w-2/5 max-w-md p-2 bg-white dark:bg-gray-800 shadow-2xl 
+      shadow-black rounded-3xl ring-4 ring-purple-400 ring-offset-4 ring-offset-cyan-100
+      mt-4 mb-4 "
       >
-        <div className="mx-auto max-w-md space-y-6">
+        <div className="mx-auto max-w-md space-y-6 ml-2 mr-2">
           <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-bold">Password Generator</h1>
+            <h1 className="text-3xl font-bold font-serif mt-1">Password Generator</h1>
             <p className="text-gray-500 dark:text-gray-400">
               Create a secure password with just a few clicks.
             </p>
           </div>
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="length">Password Length</Label>
+          <div className="space-y-3">             
+            <Label htmlFor="length">Password Length:</Label>
+            <div className="space-y-1 mx-auto flex justify-center items-center">
               <Input
                 id="length"
                 type="number"
@@ -88,7 +89,7 @@ export default function PasswordGeneratorComponent() {
                 max="32"
                 value={length}
                 onChange={handleLengthChange}
-                className="w-full ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100"
+                className="w-full ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100 shadow-md"
               />
             </div>
             <div className="space-y-2">
@@ -128,25 +129,26 @@ export default function PasswordGeneratorComponent() {
             </div>
             <Button
               type="button"
-              className="w-full ring-2 ring-purple-500 ring-offset-4 ring-offset-cyan-100 bg-violet-700
-            font-bold"
+              className="w-2/4 ring-2 ring-purple-500 ring-offset-2 ring-offset-cyan-100 bg-violet-950
+            font-bold shadow-md flex justify-center items-center flex-auto mx-auto"
               onClick={generatePassword}
             >
               Generate Password
             </Button>
             <div className="space-y-2">
-              <Label htmlFor="password">Generated Password</Label>
-              <div className="flex items-center space-x-2">
+              <Label htmlFor="password" className="font-bold">Generated Password:</Label>
+              <div className="flex items-center space-x-4 ml-2 mr-2 mb-2">
                 <Input
                   id="password"
                   type="text"
                   value={password}
                   readOnly
-                  className="flex-1 ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100"
+                  className="flex-1 ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100 shadow-md"
                 />
                 <Button
                   type="button"
-                  className="ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100 bg-violet-700"
+                  className="ring-2 ring-purple-300 ring-offset-2 ring-offset-cyan-100 bg-violet-950
+                  shadow-md"
                   onClick={copyToClipboard}
                 >
                   Copy to Clipboard
