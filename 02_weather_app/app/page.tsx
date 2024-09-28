@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import WeatherWidget from "@/components/weather-widget";
 
 

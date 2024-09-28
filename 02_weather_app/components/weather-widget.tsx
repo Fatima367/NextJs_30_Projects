@@ -68,7 +68,7 @@ export default function WeatherWidget() {
       } else if (temperature < 20) {
         return `The temperature is ${temperature}°C. Comfortable for a light jacket.`;
       } else if (temperature < 30) {
-        return `It's a pleasant ${temperature}°C. Enjoy the nice weather!`;
+        return `It's pleasant ${temperature}°C. Enjoy the nice weather!`;
       } else {
         return `It's hot at ${temperature}°C. Stay hydrated!`;
       }
@@ -79,23 +79,23 @@ export default function WeatherWidget() {
   function getWeatherMessage(description: string): string {
     switch (description.toLowerCase()) {
       case "sunny":
-        return "It's a beautiful sunny day!";
+        return "It's a beautiful sunny day! ☀️";
       case "partly cloudy":
-        return "Expect some clouds and sunshine.";
+        return "Expect some clouds and sunshine. 🌥️";
       case "cloudy":
-        return "It's cloudy today.";
+        return "It's cloudy today.☁️";
       case "overcast":
-        return "The sky is overcast.";
+        return "The sky is overcast.☁️☁️";
       case "rain":
-        return "Don't forget your umbrella! It's raining.";
+        return "Don't forget your umbrella! It's raining. 🌩️";
       case "thunderstorm":
-        return "Thunderstorms are expected today.";
+        return "Thunderstorms are expected today. 🌩️";
       case "snow":
-        return "Bundle up! It's snowing.";
+        return "Bundle up! It's snowing. ❄️";
       case "mist":
-        return "It's misty outside.";
+        return "It's misty outside. 🌫";
       case "fog":
-        return "Be careful, there's fog outside.";
+        return "Be careful, there's fog outside.🌫️";
       default:
         return description;
     }
@@ -105,14 +105,20 @@ export default function WeatherWidget() {
     const currentHour = new Date().getHours();
     const isNight = currentHour >= 18 || currentHour < 6;
 
-    return `${loacation} ${isNight ? "at Night" : "During the Day"}`;
+    return `${loacation} ${isNight ? "at Night 🌙" : "During the Day ☀️"}`;
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Card className="w-full max-w-md mx-auto text-center">
+    <div
+      className="flex justify-center items-center h-screen bg-[url(./images/bgimg.jpg)] 
+      bg-cover"
+    >
+      <Card
+        className="w-full max-w-md mx-auto text-center ring-2 ring-white ring-offset-2 
+        ring-offset-blue-200 rounded-2xl"
+      >
         <CardHeader>
-          <CardTitle>Weather Widget</CardTitle>
+          <CardTitle className="font-serif">Weather Widget</CardTitle>
           <CardDescription>
             Search for the current weather conditions in your city.
           </CardDescription>
@@ -126,8 +132,13 @@ export default function WeatherWidget() {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setLocation(e.target.value)
               }
+              className="shadow-lg"
             ></Input>
-            <Button type="submit" disabled={isLoading}>
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="shadow-lg bg-blue-900 rounded-lg"
+            >
               {isLoading ? "Loading..." : "Search"}
             </Button>
           </form>
@@ -135,15 +146,15 @@ export default function WeatherWidget() {
           {weather && (
             <div className="mt-4 grid gap-2">
               <div className="flex items-center gap-2">
-                <ThermometerIcon className="w-6 h-6" />
+                <ThermometerIcon className="w-6 h-6 text-orange-400" />
                 {getTemperatureMessage(weather.temperature, weather.unit)}
               </div>
               <div className="flex items-center gap-2">
-                <CloudIcon className="w-6 h-6 " />
+                <CloudIcon className="w-6 h-6 text-blue-800" />
                 <div>{getWeatherMessage(weather.description)}</div>
               </div>
               <div className="flex items-center gap-2">
-                <MapPinIcon className="w-6 h-6 " />
+                <MapPinIcon className="w-6 h-6 text-red-700" />
                 <div>{getLocationMessage(weather.location)}</div>
               </div>
             </div>
